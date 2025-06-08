@@ -18,8 +18,9 @@ package controller
 
 import (
 	"fmt"
-	v1 "k8s.io/client-go/informers/core/v1"
 	"time"
+
+	v1 "k8s.io/client-go/informers/core/v1"
 
 	autoscalingv1 "k8s.io/api/autoscaling/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -47,10 +48,6 @@ type BalancerError struct {
 type BalancerStatusInfo struct {
 	replicasObserved int32
 	updated          bool
-}
-
-func newBalancerStatusInfo(replicas int32, updated bool) BalancerStatusInfo {
-	return BalancerStatusInfo{replicasObserved: replicas, updated: updated}
 }
 
 // core is CoreInferface implementation.
